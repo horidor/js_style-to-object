@@ -10,8 +10,10 @@ function convertToObject(sourceString) {
   return sourceString
     .split(';')
     .filter((string) => string.length > 0)
-    .reduce((prev, string) => {
-      const keyValuePair = string.split(':').map((keyValue) => keyValue.trim());
+    .reduce((prev, property) => {
+      const keyValuePair = property
+        .split(':')
+        .map((keyValue) => keyValue.trim());
 
       return {
         ...prev,
