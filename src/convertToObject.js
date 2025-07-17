@@ -15,6 +15,10 @@ function convertToObject(sourceString) {
         .split(':')
         .map((keyValue) => keyValue.trim());
 
+      if (keyValuePair[1] === undefined) {
+        return prev;
+      }
+
       return {
         ...prev,
         [keyValuePair[0]]: keyValuePair[1],
